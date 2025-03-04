@@ -11,9 +11,12 @@ import java.util.ResourceBundle;
 
 
 public class unknownController  implements Initializable {
+    int searchMode = 0; //0 for fac 1 for student
     boolean firstEntry = false;
     @FXML
     public Label userTypeLabel;
+    @FXML
+    public Label subLabel;
     @FXML
     public TextField searchTextField;
     @FXML
@@ -128,7 +131,25 @@ public class unknownController  implements Initializable {
         {
             infoList[i].setText(candidates[i]);
         }
-
     }
-
+    @FXML
+    protected void onFacuiltyListButton()
+    {
+        subLabel.setText("Facuilty List");
+        for(int i = 0; i < 14; i++)
+        {
+            infoList[i].setText(main.facuilties[i].name);
+        }
+        searchMode = 0;
+    }
+    @FXML
+    protected void onStudentListButton()
+    {
+        subLabel.setText("Student List");
+        for(int i = 0; i < 14; i++)
+        {
+            infoList[i].setText(main.students[i].name);
+        }
+        searchMode = 0;
+    }
 }
